@@ -92,29 +92,28 @@ print(model.intercept_)
 - kNN (very interesting addition here: probabilistic predictions on the
   last line)
 <pre>
-from sklearn import neighbors, datasets
+  from sklearn import neighbors, datasets
 
-iris = datasets.load_iris()
-X, y = iris.data, iris.target
+  iris = datasets.load_iris()
+  X, y = iris.data, iris.target
 
-\#instantiate the model
-knn = neighbors.KNeighborsClassifier(n_neighbors=5)
+  \#instantiate the model
+  knn = neighbors.KNeighborsClassifier(n_neighbors=5)
 
-\# fit the model
-knn.fit(X, y)
+  \# fit the model
+  knn.fit(X, y)
 
-\# use the model to predict
-knn.predit([[3, 5, 4, 2],])
+  \# use the model to predict
+  knn.predit([[3, 5, 4, 2],])
 
 
-\# What kind of iris has 3cm x 5cm sepal and 4cm x 2cm petal?
-\# call the "predict" method:
-result = knn.predict([[3, 5, 4, 2],])
+  \# What kind of iris has 3cm x 5cm sepal and 4cm x 2cm petal?
+  \# call the "predict" method:
+  result = knn.predict([[3, 5, 4, 2],])
 
-print(iris.target_names[result])
-print iris.target_names
-print knn.predict_proba([[3, 5, 4, 2],])
-
+  print(iris.target_names[result])
+  print iris.target_names
+  print knn.predict_proba([[3, 5, 4, 2],])
 </pre>
 
 - Random Forrest
