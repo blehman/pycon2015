@@ -1,5 +1,5 @@
 Contact:  
-  *  Twitter:[@BrianLehman](https://twitter.com/BrianLehman)  
+  *  Twitter: [@BrianLehman](https://twitter.com/BrianLehman)  
   *  Github: [Blehman](https://github.com/blehman)
 
 # PyCon 2015
