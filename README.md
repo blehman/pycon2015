@@ -29,16 +29,16 @@ Unsupervised Learning addresses a different sort of problem. Here the data has n
 4. Model validation
   - Split the data into training vs test
 <pre>
-from sklearn.cross_validation import train_test_split
-Xtrain, Xtest, ytrain, ytest = train_test_split(X, y)
+  from sklearn.cross_validation import train_test_split
+  Xtrain, Xtest, ytrain, ytest = train_test_split(X, y)
 </pre>
   - Confusion Matrix:
 <pre>
-neibs = 2
-clf = KNeighborsClassifier(n_neighbors=neibs)
-clf.fit(Xtrain, ytrain)
-ypred = clf.predict(Xtest)
-print(confusion_matrix(ytest, ypred))
+  neibs = 2
+  clf = KNeighborsClassifier(n_neighbors=neibs)
+  clf.fit(Xtrain, ytrain)
+  ypred = clf.predict(Xtest)
+  print(confusion_matrix(ytest, ypred))
 </pre>
 
 5. Support vector classifier
@@ -69,24 +69,24 @@ iris = load_iris()
 </pre>
 - start to consider numpy arrays and features from the dataset  
 <pre>
-import numpy as np  
-iris.keys()
-iris.data.shape
-print iris.data[0:3,0]  
+  import numpy as np  
+  iris.keys()
+  iris.data.shape
+  print iris.data[0:3,0]  
 print iris.data  
 </pre>
 - use models from scikit-learn
 Notice that we input data from the model y = 2x + 1 and this model is
 accurately predicted.
 <pre>
-from sklearn.linear_model import LinearRegression
-model = LinearRegression(normalize=True)
-x = np.arange(10)
-X = x[:, np.newaxis]
-y = 2 * x + 1
-model.fit(X, y)
-print(model.coef_)
-print(model.intercept_)
+  from sklearn.linear_model import LinearRegression
+  model = LinearRegression(normalize=True)
+  x = np.arange(10)
+  X = x[:, np.newaxis]
+  y = 2 * x + 1
+  model.fit(X, y)
+  print(model.coef_)
+  print(model.intercept_)
 </pre>
 
 - kNN (very interesting addition here: probabilistic predictions on the
@@ -118,14 +118,14 @@ print(model.intercept_)
 
 - Random Forrest
 <pre>
-from sklearn.datasets import make_blobs
+  from sklearn.datasets import make_blobs
 
-X, y = make_blobs(n_samples=300, centers=4,
-                  random_state=0, cluster_std=1.0)
-plt.scatter(X[:, 0], X[:, 1], c=y, s=50, cmap='rainbow');
-from sklearn.ensemble import RandomForestClassifier
-clf = RandomForestClassifier(n_estimators=100, random_state=0)
-visualize_tree(clf, X, y, boundaries=False);
+  X, y = make_blobs(n_samples=300, centers=4,
+                    random_state=0, cluster_std=1.0)
+  plt.scatter(X[:, 0], X[:, 1], c=y, s=50, cmap='rainbow');
+  from sklearn.ensemble import RandomForestClassifier
+  clf = RandomForestClassifier(n_estimators=100, random_state=0)
+  visualize_tree(clf, X, y, boundaries=False);
 </pre>
 
 ###Machine Learning with Scikit-Learn (II) w/ Olivier Grisel
