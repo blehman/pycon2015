@@ -8,10 +8,9 @@ Learnings from PyCon 2015.
 
 ##Tutorials
 ###Machine Learning with Scikit-Learn (I) w/ Jake VanderPlas
-These notes are taken from Jake's April 8th, 2015 presentation at PyCon.
-Below are just a few notes on pieces of the talk. Jake's full presentation using several ipython notebooks is on github: [ML wisdom](https://github.com/jakevdp/sklearn_pycon2015).
+Jake's full presentation using several ipython notebooks is on github: [ML wisdom](https://github.com/jakevdp/sklearn_pycon2015). The notes below are taken from his April 8th, 2015 presentation at PyCon.
 
-####2015-04-08 notes:  
+#####2015-04-08 notes:  
 1. Three major steps emerge:  
   *  instantiate the model
   *  fit the model
@@ -28,18 +27,7 @@ Unsupervised Learning addresses a different sort of problem. Here the data has n
 
 4. Model validation
   - Split the data into training vs test
-<pre>
-  from sklearn.cross_validation import train_test_split
-  Xtrain, Xtest, ytrain, ytest = train_test_split(X, y)
-</pre>
-  - Confusion Matrix:
-<pre>
-  neibs = 2
-  clf = KNeighborsClassifier(n_neighbors=neibs)
-  clf.fit(Xtrain, ytrain)
-  ypred = clf.predict(Xtest)
-  print(confusion_matrix(ytest, ypred))
-</pre>
+  - Useful: confusion matrix
 
 5. Support vector classifier
   - Goal: draw a line (plane) that splits the data
@@ -47,12 +35,32 @@ Unsupervised Learning addresses a different sort of problem. Here the data has n
   - For non linear kernels, we can use 'rbf' (radial basis function),
     which computes a center  
 
-6. Decision Tree 
+6. Decision Tree and Random Forrest
   - The boundaries (decisions) respond to noise.
   - So overfitting can be a problem if the data contains much noise.
   - *Random Forrest* tries to optimize the answer the boundaries.
 
-7. Handy ipython tid bits  
+7. PCA (Principal component analysis)
+  - Useful for dimension reduction
+  - Tries to determine the importance of dimensions
+  - Question: How much of the variance is preserved? We can select
+    dimensions based on how much of the total variance we want to
+preserve.
+
+8. K-Means
+  - Guess cluster centers
+  - Assign points to nearest center
+  - Repeat until converged (see his [great demo insie this IPython notebook](https://github.com/jakevdp/sklearn_pycon2015/blob/master/notebooks/04.2-Clustering-KMeans.ipynb))
+
+
+###Machine Learning with Scikit-Learn (II) w/ Olivier Grisel
+Audience level: Intermediate  
+###Winning Machine Learning Competitions With Scikit-Learn w/ Ben Hamner
+Audience level: Intermediate  
+###Twitter Network Analysis with NetworkX w/ Sarah Guido, Celia La
+Audience level: Intermediate  
+###Random notes
+1. Handy ipython tid bits  
   - To get help with a defined model:
 <pre>
 SVC?
@@ -75,6 +83,22 @@ iris = load_iris()
   print iris.data[0:3,0]  
 print iris.data  
 </pre>
+
+- Model validation
+  - Split the data into training vs test
+  <pre>
+    from sklearn.cross_validation import train_test_split
+    Xtrain, Xtest, ytrain, ytest = train_test_split(X, y)
+
+    \#Confusion Matrix:
+
+    neibs = 2
+    clf = KNeighborsClassifier(n_neighbors=neibs)
+    clf.fit(Xtrain, ytrain)
+    ypred = clf.predict(Xtest)
+    print(confusion_matrix(ytest, ypred))
+  </pre>
+
 - use models from scikit-learn
 Notice that we input data from the model y = 2x + 1 and this model is
 accurately predicted.
@@ -128,12 +152,6 @@ accurately predicted.
   visualize_tree(clf, X, y, boundaries=False);
 </pre>
 
-###Machine Learning with Scikit-Learn (II) w/ Olivier Grisel
-Audience level: Intermediate  
-###Winning Machine Learning Competitions With Scikit-Learn w/ Ben Hamner
-Audience level: Intermediate  
-###Twitter Network Analysis with NetworkX w/ Sarah Guido, Celia La
-Audience level: Intermediate  
 
 
 
