@@ -7,7 +7,7 @@ Learnings from PyCon 2015.
 2.  [Machine Learning in Action](http://www.manning.com/pharrington/)
 
 ##Tutorials
-###Machine Learning with Scikit-Learn (I) w/ Jake VanderPlas
+###(\#1)Machine Learning with Scikit-Learn (I) w/ Jake VanderPlas
 Jake's full presentation using several ipython notebooks is on github: [ML wisdom](https://github.com/jakevdp/sklearn_pycon2015). The notes below are taken from his April 8th, 2015 presentation at PyCon.
 
 #####2015-04-08 notes:  
@@ -53,12 +53,13 @@ preserve.
   - Repeat until converged (see his [great demo insie this IPython notebook](https://github.com/jakevdp/sklearn_pycon2015/blob/master/notebooks/04.2-Clustering-KMeans.ipynb))
 
 
-###Machine Learning with Scikit-Learn (II) w/ Olivier Grisel
+###(\#2) Machine Learning with Scikit-Learn (II) w/ Olivier Grisel
 Audience level: Intermediate  
-###Winning Machine Learning Competitions With Scikit-Learn w/ Ben Hamner
+###(\#3) Winning Machine Learning Competitions With Scikit-Learn w/ Ben Hamner
 Audience level: Intermediate  
-###Twitter Network Analysis with NetworkX w/ Sarah Guido, Celia La
+###(\#4) Twitter Network Analysis with NetworkX w/ Sarah Guido, Celia La
 Audience level: Intermediate  
+###Main Sessions
 ###Random notes
 1. Handy ipython tid bits  
   - To get help with a defined model:
