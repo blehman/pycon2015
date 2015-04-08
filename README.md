@@ -97,18 +97,18 @@ from sklearn import neighbors, datasets
 iris = datasets.load_iris()
 X, y = iris.data, iris.target
 
-#instantiate the model
+\#instantiate the model
 knn = neighbors.KNeighborsClassifier(n_neighbors=5)
 
-# fit the model
+\# fit the model
 knn.fit(X, y)
 
-# use the model to predict
+\# use the model to predict
 knn.predit([[3, 5, 4, 2],])
 
 
-# What kind of iris has 3cm x 5cm sepal and 4cm x 2cm petal?
-# call the "predict" method:
+\# What kind of iris has 3cm x 5cm sepal and 4cm x 2cm petal?
+\# call the "predict" method:
 result = knn.predict([[3, 5, 4, 2],])
 
 print(iris.target_names[result])
