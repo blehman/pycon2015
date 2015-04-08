@@ -63,22 +63,31 @@ Olivier's full presentation is available on github: [ML Wisdom II](https://githu
 0. How to use numpy (basic tutorial).
 1. How to deal with heterogenous data.
   - Replace NA w/ median values (see .fillna(median_features) in Random
-    notes)
+    notes)  
   - Consideration for factorizing (see example below) categorical variables: if we have
     labels like *British, American, German*, we could represent them as
 *(0, 1, 2)*; however, this implicitly assumes that the distance beteen
 British and German is larger than the distance between Bristish and
-American. Appropriate? 
+American. Appropriate?  
 2. How to massage data when it doesn't fit into a regular numpy array.
 3. How to select and evaluate models.
-  - ROC Curve is a way to look at the tradeoff between true positive and
-    false positives for various tuning.  
+  - ROC Curve for each model is a way to look at the tradeoff between true positive and
+    false positives for various tuning. It assumes that the line y=x is
+random w/ an area under the curve being 0.5. The area under the ROC
+curver > 0.5 suggests the quality of the model. *note: up and left on
+the ROC curve is desirable (less false positives and more true
+positives)*
 
   - Cross Validation with a *sufficient* number of folds allows us to test and possibly improve the model. (see %%time below for trade off of increasing the number of folds). The improvement comes from helping us choose, for example, a (regularization) value for C in regression.  
 
-  - GridSearchCV can optimize selected parameters for a model. It uses k folds in cross validation (see GradientBoostingClassifier) to output a mean validation score for each combination of parameters. So the output is a set of scores for each model. Sorting this list based on the on the mean validation score, we can find our *best* combination. (note: setting `n_job=-1` can be help parallelize the process).
+  - GridSearchCV can optimize selected parameters for a model. It uses k folds in cross validation (see GradientBoostingClassifier) to output a mean validation score for each combination of parameters. So the output is a set of scores for each model. Sorting this list based on the on the mean validation score, we can find our *best* combination. (note: setting `n_job=-1` can be help parallelize the process).  
+
+  - Imputer can be used build statistics for each feature, remove the missing values, and then test the affects of data-snooping *note: review this process in the notebook*. 
 
 4. How to classify/cluster text based data.
+  - TfidfVectorizer(min_df=2) is set to only keep the documents that has
+    words that appear at most twice in the dataset. The output is a
+unique sparse matrix that does NOT store the zeros (ie. compressed). 
 
 ###(\#3) Winning Machine Learning Competitions With Scikit-Learn w/ Ben Hamner
 Audience level: Intermediate  
