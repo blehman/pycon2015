@@ -74,6 +74,7 @@ American. Appropriate?
   - ROC Curve is a way to look at the tradeoff between true positive and
     false positives for various tuning.
   - Cross Validation with a *sufficient* number of folds allows us to test and possibly improve the model. (see %%time below for trade off of increasing the number of folds). The improvement comes from helping us choose, for example, a (regularization) value for C in regression. 
+  - GridSearchCV can optimize selected parameters for a model. It uses k folds in cross validation (see GradientBoostingClassifier) to output a mean validation score for each combination of parameters. So the output is a set of scores for each model. Sorting this list based on the on the mean validation score, we can find our *best* combination. (note: setting `n_job=-1` can be help parallelize the process).
 
 4. How to classify/cluster text based data.
 
@@ -83,9 +84,9 @@ Audience level: Intermediate
 Audience level: Intermediate  
 ###Main Sessions
 ###Links
-Bayesian stat from Allen Downey:
-- [Think Bayes](http://www.greenteapress.com/thinkbayes/)
-- [His other books are here](http://www.greenteapress.com/)
+Bayesian stat from Allen Downey:  
+  * [Think Bayes](http://www.greenteapress.com/thinkbayes/)  
+  * [His other books are here](http://www.greenteapress.com/)
 ###Random notes
 1. Handy ipython tid bits  
   - Transform text to numeric values.
