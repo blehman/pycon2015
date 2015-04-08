@@ -87,7 +87,9 @@ positives)*
 4. How to classify/cluster text based data.
   - TfidfVectorizer(min_df=2) is set to only keep the documents that has
     words that appear at most twice in the dataset. The output is a
-unique sparse matrix that does NOT store the zeros (ie. compressed). 
+unique sparse matrix that does NOT store the zeros (ie. compressed). We
+could use `array.toarray()` or `array.todense()` to bounce between these
+representations.
 
 ###(\#3) Winning Machine Learning Competitions With Scikit-Learn w/ Ben Hamner
 Audience level: Intermediate  
