@@ -92,11 +92,12 @@ could use `array.toarray()` or `array.todense()` to bounce between these
 representations.
 
 ###(\#3) Winning Machine Learning Competitions With Scikit-Learn w/ Ben Hamner
-Audience level: Intermediate  
+...
 ###(\#4) Twitter Network Analysis with NetworkX w/ Sarah Guido, Celia La
-Audience level: Intermediate  
-###Main Sessions
-###Links
+...
+##Main Sessions
+...
+##Links
 Bayesian stat from Allen Downey:  
   * [Think Bayes](http://www.greenteapress.com/thinkbayes/)  
   * [His other books are here](http://www.greenteapress.com/)  
