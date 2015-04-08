@@ -1,3 +1,7 @@
+Contact:  
+  *  Twitter:[@BrianLehman](https://twitter.com/BrianLehman)  
+  *  Github: [Blehman](https://github.com/blehman)
+
 # PyCon 2015
 Learnings from PyCon 2015.
 
@@ -7,7 +11,7 @@ Learnings from PyCon 2015.
 2.  [Machine Learning in Action](http://www.manning.com/pharrington/)
 
 ##Tutorials
-###(\#1)Machine Learning with Scikit-Learn (I) w/ Jake VanderPlas
+###(\#1) Machine Learning with Scikit-Learn (I) w/ Jake VanderPlas
 Jake's full presentation using several ipython notebooks is on github: [ML wisdom](https://github.com/jakevdp/sklearn_pycon2015). The notes below are taken from his April 8th, 2015 presentation at PyCon.
 
 #####2015-04-08 notes:  
