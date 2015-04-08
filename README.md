@@ -12,9 +12,8 @@ Learnings from PyCon 2015.
 
 ##Tutorials
 ###(\#1) Machine Learning with Scikit-Learn (I) w/ Jake VanderPlas
-Jake's full presentation using several ipython notebooks is on github: [ML wisdom](https://github.com/jakevdp/sklearn_pycon2015). The notes below are taken from his April 8th, 2015 presentation at PyCon.
-
-#####2015-04-08 notes:  
+Jake's full presentation using several ipython notebooks is on github: [ML Wisdom I](https://github.com/jakevdp/sklearn_pycon2015). 
+#####2015-04-08 lecture notes:  
 1. Three major steps emerge:  
   *  instantiate the model
   *  fit the model
@@ -58,27 +57,86 @@ preserve.
 
 
 ###(\#2) Machine Learning with Scikit-Learn (II) w/ Olivier Grisel
-Audience level: Intermediate  
+Olivier's full presentation is available on github: [ML Wisdom II](https://github.com/ogrisel/parallel_ml_tutorial). 
+
+#####2015-04-08 lecture notes: 
+0. How to use numpy (basic tutorial).
+1. How to deal with heterogenous data.
+  - Replace NA w/ median values (see .fillna(median_features) in Random
+    notes)
+  - Consideration for factorizing (see example below) categorical variables: if we have
+    labels like *British, American, German*, we could represent them as
+*(0, 1, 2)*; however, this implicitly assumes that the distance beteen
+British and German is larger than the distance between Bristish and
+American. Appropriate? 
+2. How to massage data when it doesn't fit into a regular numpy array.
+3. How to select and evaluate models.
+  - ROC Curve is a way to look at the tradeoff between true positive and
+    false positives for various tuning.
+  - Cross Validation with a *sufficient* number of folds allows us to test and possibly improve the model. (see %%time below for trade off of increasing the number of folds). The improvement comes from helping us choose, for example, a (regularization) value for C in regression. 
+
+4. How to classify/cluster text based data.
+
 ###(\#3) Winning Machine Learning Competitions With Scikit-Learn w/ Ben Hamner
 Audience level: Intermediate  
 ###(\#4) Twitter Network Analysis with NetworkX w/ Sarah Guido, Celia La
 Audience level: Intermediate  
 ###Main Sessions
+###Links
+Bayesian stat from Allen Downey:
+- [Think Bayes](http://www.greenteapress.com/thinkbayes/)
+- [His other books are here](http://www.greenteapress.com/)
 ###Random notes
 1. Handy ipython tid bits  
+  - Transform text to numeric values.
+<pre>
+  factors, labels = pd.factorize(data.Embarked)
+</pre>
+  - How to time process 
+<pre>
+  %%time
+</pre>
+  - Curl or Read data 
+<pre>
+  #!curl -s https://dl.dropboxusercontent.com/u/5743203/data/titanic/titanic_train.csv | head -5
+  with open('titanic_train.csv', 'r') as f:
+      for i, line in zip(range(5), f):
+          print(line.strip())
+
+
+  #data = pd.read_csv('https://dl.dropboxusercontent.com/u/5743203/data/titanic/titanic_train.csv')
+  data = pd.read_csv('titanic_train.csv')
+</pre>
+  - Count # of entires per feature
+<pre>
+  data.count()
+</pre>
+ - Remove NA, calculate Media, then fill in NA w/ Media
+<pre>
+  numerical_features = data[['Fare', 'Pclass', 'Age']]
+
+  \# calculate media where .dropna() removes the NA
+  median_features = numerical_features.dropna().median()
+
+  \# fill in the na values with the media
+  imputed_features = numerical_features.fillna(median_features)
+  imputed_features.count()
+</pre>
+
   - To get help with a defined model:
 <pre>
-SVC?
+  SVC?
 </pre>
   - Set the figures to be inline  
 <pre>
-%matplotlib inline
+  %matplotlib inline
 </pre>
   - SHIFT + TAB inside a model provides a shortlist of the optional paramaters  
+  - SHIFT + ENTER runs a cell and proceeds to next.  
   - grab the iris dataset
 <pre> 
-from sklearn.datasets import load_iris 
-iris = load_iris()
+  from sklearn.datasets import load_iris 
+  iris = load_iris()
 </pre>
 - start to consider numpy arrays and features from the dataset  
 <pre>
@@ -86,7 +144,7 @@ iris = load_iris()
   iris.keys()
   iris.data.shape
   print iris.data[0:3,0]  
-print iris.data  
+  print iris.data  
 </pre>
 
 - Model validation
