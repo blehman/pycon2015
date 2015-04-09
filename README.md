@@ -1,6 +1,6 @@
 Contact:  
   *  Twitter: [@BrianLehman](https://twitter.com/BrianLehman)  
-  *  Github: [Blehman](https://github.com/blehman)
+  *  Github: [blehman](https://github.com/blehman)
 
 # PyCon 2015
 Learnings from PyCon 2015.
@@ -86,9 +86,7 @@ positives)*
 
 4. How to classify/cluster text based data.
   - TfidfVectorizer(min_df=2) is set to only keep the documents that has
-    words that appear at most twice in the dataset. The output is a
-unique sparse matrix that does NOT store the zeros (ie. compressed). We
-could use `array.toarray()` or `array.todense()` to bounce between these
+    words that appear at most twice in the dataset. The output is a unique sparse matrix that does NOT store the zeros (ie. compressed). We could use `array.toarray()` or `array.todense()` to bounce between these
 representations.
   - TfidfVectorizer(token_pattern=r'(?u)\b[\w-]+\b') treat hyphen as a letter and do not exclude single letter tokens.
 <pre>
@@ -165,16 +163,143 @@ The person who won, Kevin Markham, has an instructional [kaggle blog series](htt
 </pre>
 
 ###4.) Twitter Network Analysis with NetworkX w/ Sarah Guido, Celia La
-...
+Sarah and Celia's full presentation is available on github: [networkx-tutorial](https://github.com/sarguido/networkx-tutorial) or review the [slide deck](http://www.slideshare.net/SarahGuido/network-theory-pycon)
+
+
+#####2015-04-09 lecture notes:
+In order to use the Twitter API, you'll need (see Random notes for
+further details or [this site](http://nbviewer.ipython.org/github/furukama/Mining-the-Social-Web-2nd-Edition/blob/master/ipynb/__Chapter%201%20-%20Mining%20Twitter%20%28Full-Text%20Sampler%29.ipynb)):
+
+* import oauth2 (pip install oauth2)
+* A twitter account
+* Twitter Consumer/Access tokens
+* pip install twitter  
+
+Three measures emerge:  
+
+* Degree centrality - **Most edges** == most important  (for directed
+  graphs, we can also consider in/out degree centrality)
+* Betweenness centrality - **Between the most pairs of nodes** == most
+  importnat  
+* Closeness centrality - **Average length of shortest paths** == most
+  important  
+
+Export for D3:  
+
+* [Export Methods](https://networkx.github.io/documentation/latest/reference/readwrite.json_graph.html)
+<pre>
+  >>> from networkx.readwrite import json_graph
+  >>> G = nx.Graph([(1,2)])
+  >>> data = json_graph.node_link_data(G)
+</pre>
 ##Main Sessions
 ...
 ##Links
 Bayesian stat from Allen Downey:  
   * [Think Bayes](http://www.greenteapress.com/thinkbayes/)  
   * [His other books are here](http://www.greenteapress.com/)  
+Visualizations:  
   * [Kaggle Comp Process Visualization](http://datascience.computingpatterns.com/)
-###Random notes
+##Random notes
 1. Handy ipython tid bits  
+
+  - Get Twitter Data from the public api (**we had problems w/ this in the NetworkX lecture method**)
+  
+  - I added these details from [this site](http://nbviewer.ipython.org/github/furukama/Mining-the-Social-Web-2nd-Edition/blob/master/ipynb/__Chapter%201%20-%20Mining%20Twitter%20%28Full-Text%20Sampler%29.ipynb):
+<pre>
+  import twitter
+
+  \# XXX: Go to http://dev.twitter.com/apps/new to create an app and get values
+  \# for these credentials, which you'll need to provide in place of these
+  \# empty string values that are defined as placeholders.
+  \# See https://dev.twitter.com/docs/auth/oauth for more information 
+  \# on Twitter's OAuth implementation.
+
+  CONSUMER_KEY = ''
+  CONSUMER_SECRET = ''
+  OAUTH_TOKEN = ''
+  OAUTH_TOKEN_SECRET = ''
+
+  auth = twitter.oauth.OAuth(OAUTH_TOKEN, OAUTH_TOKEN_SECRET,
+                             CONSUMER_KEY, CONSUMER_SECRET)
+
+  twitter_api = twitter.Twitter(auth=auth)
+
+  \# Nothing to see by displaying twitter_api except that it's now a
+  \# defined variable
+
+  print twitter_api
+
+  \# The Yahoo! Where On Earth ID for the entire world is 1.
+  \# See https://dev.twitter.com/docs/api/1.1/get/trends/place and
+  \# http://developer.yahoo.com/geo/geoplanet/
+
+  WORLD_WOE_ID = 1
+  US_WOE_ID = 23424977
+
+  \# Prefix ID with the underscore for query string parameterization.
+  \# Without the underscore, the twitter package appends the ID value
+  \# to the URL itself as a special case keyword argument.
+
+  world_trends = twitter_api.trends.place(_id=WORLD_WOE_ID)
+  us_trends = twitter_api.trends.place(_id=US_WOE_ID)
+
+  import json
+
+  \#print json.dumps(world_trends, indent=1)
+  print
+  \#print json.dumps(us_trends, indent=1)
+  world_trends_set = set([trend['name'] 
+                          for trend in world_trends[0]['trends']])
+
+  us_trends_set = set([trend['name'] 
+                       for trend in us_trends[0]['trends']]) 
+
+  common_trends = world_trends_set.intersection(us_trends_set)
+
+  print common_trends
+
+
+  \# XXX: Set this variable to a trending topic, 
+  \# or anything else for that matter. The example query below
+  \# was a trending topic when this content was being developed
+  \# and is used throughout the remainder of this chapter.
+
+  q = '#MentionSomeoneImportantForYou' 
+
+  count = 100
+
+  \# See https://dev.twitter.com/docs/api/1.1/get/search/tweets
+
+  search_results = twitter_api.search.tweets(q=q, count=count)
+
+  statuses = search_results['statuses']
+
+
+  \# Iterate through 5 more batches of results by following the cursor
+
+  for _ in range(5):
+      print "Length of statuses", len(statuses)
+      try:
+          next_results = search_results['search_metadata']['next_results']
+      except KeyError, e: # No more results when next_results doesn't exist
+          break
+          
+      \# Create a dictionary from next_results, which has the following form:
+      \# ?max_id=313519052523986943&q=NCAA&include_entities=1
+      kwargs = dict([ kv.split('=') for kv in next_results[1:].split("&") ])
+      
+      search_results = twitter_api.search.tweets(**kwargs)
+      statuses += search_results['statuses']
+
+  \# Show one sample search result by slicing the list...
+  \#print json.dumps(statuses[0], indent=1)
+
+
+  print statuses[0].keys()
+  print
+  print statuses[0]["text"]
+</pre>
   - Transform text to numeric values.
 <pre>
   factors, labels = pd.factorize(data.Embarked)
