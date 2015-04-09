@@ -205,7 +205,8 @@ Visualizations:
 
   - Get Twitter Data from the public api (**we had problems w/ this in the NetworkX lecture method**)
   
-  - I added these details from [this site](http://nbviewer.ipython.org/github/furukama/Mining-the-Social-Web-2nd-Edition/blob/master/ipynb/__Chapter%201%20-%20Mining%20Twitter%20%28Full-Text%20Sampler%29.ipynb):
+  - I added these details from [this site](http://nbviewer.ipython.org/github/furukama/Mining-the-Social-Web-2nd-Edition/blob/master/ipynb/__Chapter%201%20-%20Mining%20Twitter%20%28Full-Text%20Sampler%29.ipynb):  
+
 <pre>
   import twitter
 
