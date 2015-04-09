@@ -90,9 +90,78 @@ positives)*
 unique sparse matrix that does NOT store the zeros (ie. compressed). We
 could use `array.toarray()` or `array.todense()` to bounce between these
 representations.
+  - TfidfVectorizer(token_pattern=r'(?u)\b[\w-]+\b') treat hyphen as a letter and do not exclude single letter tokens.
+<pre>
+analyzer = TfidfVectorizer(
+    preprocessor=lambda text: text,  # disable lowercasing
+    token_pattern=r'(?u)\b[\w-]+\b', # treat hyphen as a letter
+                                      # do not exclude single letter tokens
+).build_analyzer()
 
-###(\#3) Winning Machine Learning Competitions With Scikit-Learn w/ Ben Hamner
-...
+analyzer("I love scikit-learn: this is a cool Python lib!")
+</pre>
+
+###(\#3) Winning Machine Learning Competitions With Scikit-Learn w/ David Chudzicki
+David's full presentation is available on github: [ML Comp](https://github.com/dchudz/pycon2015-kaggle-tutorial). 
+
+I use [anaconda](https://store.continuum.io/cshop/anaconda/). So to
+start this tutorial, I had to set up a virtual environment using the
+command `conda env create` and then activate it using `source activate kaggletutorial`. More details on virtual environments using anaconda [here](http://conda.pydata.org/docs/intro.html#creating-python-3-4-or-python-2-6-environments).
+
+#####2015-04-09 lecture notes:
+1. How to focus on quick iteration.
+  - First, split the available data (train.csv) into a training set and
+    testing set.
+  - Decide on feature to engineer (ie. we added title length)
+  - Instantiate some models, play with the paramaters
+  - Submit score
+2. Try it yourself. (my attempt is below. I didn't get last place! =])
+<pre>
+  \# My 1st Kaggle Submission
+  from sklearn.cross_validation import train_test_split
+  from sklearn.linear_model import LogisticRegression
+  import numpy as np
+  import matplotlib.pyplot as plt
+  import seaborn as sns
+  import pandas as pd
+
+  %matplotlib inline
+
+  \#load dataset
+  train = pd.read_csv("../data/train.csv")
+
+  \# adds length of title as a feature to the dataset
+  train["TitleLength"] = train.Title.apply(len)
+
+
+  train["tagCount"] = (~train.Tag1.isnull()).astype(int) + (~train.Tag2.isnull()).astype(int) + (~train.Tag3.isnull()).astype(int) + (~train.Tag4.isnull()).astype(int) + (~train.Tag5.isnull()).astype(int)
+      
+  \# split into training and test
+  mytrain, mytest = train_test_split(train, test_size = .4)
+
+  \# instantiate model
+  lr = LogisticRegression()
+
+  \#fit model
+  lr.fit(X=np.asarray(mytrain[["TitleLength","tagCount"]]), y = np.asarray(mytrain.OpenStatus))
+
+  \#predict
+  predictions = lr.predict_proba(np.asarray(mytest[["TitleLength","tagCount"]]))[:,1]
+
+  \#compute log loss
+  from sklearn.metrics import log_loss
+  print(log_loss(mytest.OpenStatus, predictions))
+
+  \#submission
+  test = pd.read_csv("../data/test.csv")
+  test["tagCount"] = (~train.Tag1.isnull()).astype(int) + (~train.Tag2.isnull()).astype(int) + (~train.Tag3.isnull()).astype(int) + (~train.Tag4.isnull()).astype(int) + (~train.Tag5.isnull()).astype(int)
+      
+  predictions = lr.predict_proba(np.asarray(test[["ReputationAtPostCreation","tagCount"]]))[:,1]
+  submission = pd.DataFrame({"id": test.PostId, "OpenStatus": predictions})
+  submission.to_csv("../submissions/fourth_submission.csv", index = False)
+  !head ../submissions/fourth_submission.csv
+</pre>
+
 ###(\#4) Twitter Network Analysis with NetworkX w/ Sarah Guido, Celia La
 ...
 ##Main Sessions
@@ -101,7 +170,7 @@ representations.
 Bayesian stat from Allen Downey:  
   * [Think Bayes](http://www.greenteapress.com/thinkbayes/)  
   * [His other books are here](http://www.greenteapress.com/)  
-
+  * [Kaggle Comp Process Visualization](http://datascience.computingpatterns.com/)
 ###Random notes
 1. Handy ipython tid bits  
   - Transform text to numeric values.
