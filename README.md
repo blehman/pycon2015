@@ -11,7 +11,7 @@ Learnings from PyCon 2015.
 2.  [Machine Learning in Action](http://www.manning.com/pharrington/)
 
 ##Tutorials
-###(\#1) Machine Learning with Scikit-Learn (I) w/ Jake VanderPlas
+###1.) Machine Learning with Scikit-Learn (I) w/ Jake VanderPlas
 Jake's full presentation using several ipython notebooks is on github: [ML Wisdom I](https://github.com/jakevdp/sklearn_pycon2015). 
 #####2015-04-08 lecture notes:  
 1. Three major steps emerge:  
@@ -56,7 +56,7 @@ preserve.
   - Repeat until converged (see his [great demo insie this IPython notebook](https://github.com/jakevdp/sklearn_pycon2015/blob/master/notebooks/04.2-Clustering-KMeans.ipynb))
 
 
-###(\#2) Machine Learning with Scikit-Learn (II) w/ Olivier Grisel
+###2.) Machine Learning with Scikit-Learn (II) w/ Olivier Grisel
 Olivier's full presentation is available on github: [ML Wisdom II](https://github.com/ogrisel/parallel_ml_tutorial). 
 
 #####2015-04-08 lecture notes: 
@@ -101,7 +101,7 @@ analyzer = TfidfVectorizer(
 analyzer("I love scikit-learn: this is a cool Python lib!")
 </pre>
 
-###(\#3) Winning Machine Learning Competitions With Scikit-Learn w/ David Chudzicki
+###3.) Winning Machine Learning Competitions With Scikit-Learn w/ David Chudzicki
 David's full presentation is available on github: [ML Comp](https://github.com/dchudz/pycon2015-kaggle-tutorial). 
 
 I use [anaconda](https://store.continuum.io/cshop/anaconda/). So to
@@ -115,7 +115,9 @@ command `conda env create` and then activate it using `source activate kaggletut
   - Decide on feature to engineer (ie. we added title length)
   - Instantiate some models, play with the paramaters
   - Submit score
-2. Try it yourself. (my attempt is below. I didn't get last place! =])
+
+2. Try it yourself. (my attempt is below. I didn't get last place! =])  
+The person who won, Kevin Markham, has an instructional [kaggle blog series](http://blog.kaggle.com/2015/04/08/new-video-series-introduction-to-machine-learning-with-scikit-learn/) on scikit learn with an accompanying [github repo](https://github.com/justmarkham/scikit-learn-videos)
 <pre>
   \# My 1st Kaggle Submission
   from sklearn.cross_validation import train_test_split
@@ -162,7 +164,7 @@ command `conda env create` and then activate it using `source activate kaggletut
   !head ../submissions/fourth_submission.csv
 </pre>
 
-###(\#4) Twitter Network Analysis with NetworkX w/ Sarah Guido, Celia La
+###4.) Twitter Network Analysis with NetworkX w/ Sarah Guido, Celia La
 ...
 ##Main Sessions
 ...
