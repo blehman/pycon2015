@@ -192,14 +192,17 @@ Export for D3:
   >>> G = nx.Graph([(1,2)])
   >>> data = json_graph.node_link_data(G)
 </pre>
+
 ##Main Sessions
 ...
+
 ##Links
 Bayesian stat from Allen Downey:  
   * [Think Bayes](http://www.greenteapress.com/thinkbayes/)  
   * [His other books are here](http://www.greenteapress.com/)  
 Visualizations:  
   * [Kaggle Comp Process Visualization](http://datascience.computingpatterns.com/)
+
 ##Random notes
 1. Handy ipython tid bits  
 
