@@ -197,7 +197,7 @@ Export for D3:
 
 In general, these talks were much more high level introductions.  
 
-1.) Machine Learning 101 w/ Kurt Grandis  
+###1.) Machine Learning 101 w/ Kurt Grandis  
 
 - Spectrum: Hancrafted Rules | Statistics | Machine Learning | Deep
   Learning  
@@ -219,7 +219,7 @@ In general, these talks were much more high level introductions.
 - Recommendation System  
   - Probabilistic matrix algorithm
 
-2.) "Words, Words, Words"; Using Python to read Shakespear w/ Adam Palay
+###2.) "Words, Words, Words"; Using Python to read Shakespear w/ Adam Palay
 
 - NLTK  
   - [FreqDist](http://www.nltk.org/book/ch01.html#frequency-distributions)
@@ -233,15 +233,54 @@ In general, these talks were much more high level introductions.
   - Sparse matrix  
 - Further explanation was relevant to using classifiation  
 
-3.) Beyond PEP 8 -- Best practices for beautiful intelligible code w/ Raymond Hettinger  
+###3.) Beyond PEP 8 -- Best practices for beautiful intelligible code w/ Raymond Hettinger  
 - "Do PEP 8 unto thyself, not unto others."  
 - "Treat as a style guide, not a rule book."  
 - Unit test, unit test, unit test
 - See [docs](https://www.python.org/dev/peps/pep-0008/)
 
-<pre>
-rhymes -= g
-</pre>
+###4.) Distributed Systems 101 [lvh](https://github.com/lvh)  
+- [Slides](http://www.lvh.io/DistributedSystems101/#/sec-title-slide)
+
+- Trade-offs:  
+  - Availability vs Consistencya
+  - Performance	vs Ease of reasoning
+  - Scalability	vs Transactionality  
+
+###5.) Grids, Streets and Pipelines: Building a linguistic street map with scikit-learn [repo](https://github.com/michelleful/SingaporeRoadnameOrigins)
+ - notes? (didn't attend, but it looked interesting)
+
+###6.) Advanced Git w/ David Baumgold [@singingwolfboy](https://twitter.com/singingwolfboy)
+- [Slides](http://bit.ly/git-pycon-2015)
+- `git status`
+- `git show`  
+  - w/out arguments, shows details about current commit
+  - w/ argrument, shows details about given commit
+- `git blame path/to/file.py`
+  - The last commit that touched a line in that file.
+- `git cherry-pick commitHash`
+  - switch to brach that you want to append the comment that you
+    accidentally put on master
+  - `git cherry-pick commitHash`
+    - creates a new commit (copy of the commitHash)
+  - `git reset --hard HEAD^`
+    - this will remove the current commit
+    - HEAD = latest commit that we have on this branch
+    - HEAD^ = parent of latest commit that we have on this branch
+- `git rebase`  
+  - Mater changed since I started using my branch. I want to bring my
+branch up to date with master  
+  - `git checkout myBranch`
+  - `git rebase master`
+  - `git push -f`
+- `git reflog`
+  - shows commits in the of when you last referenced them
+- `git log` 
+  - shows commits in ancestor order
+- `git rebase --interative HEAD^^^^^` OR `git rebase --interative
+  HEAD~5`
+
+
 ##Links
 Bayesian stat from Allen Downey:  
   * [Think Bayes](http://www.greenteapress.com/thinkbayes/)  
