@@ -222,7 +222,8 @@ In general, these talks were much more high level introductions.
 2.) "Words, Words, Words"; Using Python to read Shakespear w/ Adam Palay
 
 - NLTK  
-  - Frequency Distribution (nltk.FreqDist)  
+  - [FreqDist](http://www.nltk.org/book/ch01.html#frequency-distributions)
+  - Frequency Distribution ([nltk.FreqDist docs](http://www.nltk.org/_modules/nltk/probability.html))  
   - Conditional Frequency Distribution (nltk.ConditionalFreqDist)  
 - Classifying  
   - Vectorizer or Feature Extraction  
