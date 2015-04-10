@@ -193,9 +193,54 @@ Export for D3:
   >>> data = json_graph.node_link_data(G)
 </pre>
 
-##Main Sessions
-...
+##Main Sessions 
 
+In general, these talks were much more high level introductions.  
+
+1.) Machine Learning 101 w/ Kurt Grandis  
+
+- Spectrum: Hancrafted Rules | Statistics | Machine Learning | Deep
+  Learning  
+
+- Major ML tools: (K-means, SVM, Random Forrests)  
+
+- Deep Learning (Neural Networks, ect.)  
+
+- Ideans mentioned:  
+  - Manifold Hypothesis  
+  - Classification - drawing a boundary.  
+  - Regression - prediction
+
+- Learning Functions y = f(x|a)
+  - Output could be a lable, numeric value
+
+- Common split (80% training, 20% validation)
+
+- Recommendation System  
+  - Probabilistic matrix algorithm
+
+2.) "Words, Words, Words"; Using Python to read Shakespear w/ Adam Palay
+
+- NLTK  
+  - Frequency Distribution (nltk.FreqDist)  
+  - Conditional Frequency Distribution (nltk.ConditionalFreqDist)  
+- Classifying  
+  - Vectorizer or Feature Extraction  
+  - Classifier only interacts w/ teh features  
+- How to vectorize  
+  - Bag of Words  
+  - Sparse matrix  
+- Further explanation was relevant to using classifiation  
+
+3.) Beyond PEP 8 -- Best practices for beautiful intelligible code w/ Raymond Hettinger  
+- "Do PEP 8 unto thyself, not unto others."  
+- "Treat as a style guide, not a rule book."  
+- Unit test, unit test, unit test
+- See [docs](https://www.python.org/dev/peps/pep-0008/)
+
+<pre>
+rhymes -= g
+</pre>
 ##Links
 Bayesian stat from Allen Downey:  
   * [Think Bayes](http://www.greenteapress.com/thinkbayes/)  
