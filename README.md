@@ -280,6 +280,82 @@ branch up to date with master
 - `git rebase --interative HEAD^^^^^` OR `git rebase --interative
   HEAD~5`
 
+###7.) Interactive data for the web - Bokeh for web developers w/ [@birdSarah](https://twitter.com/birdsarah)
+
+Sarah's presentation is avilable in this [repo](https://github.com/birdsarah/pycon_2015_bokeh_talk).
+
+Data visualization using python.  
+
+- great for mid-data (and big-data)
+- real-time data updates
+- server-side processing
+
+###8.) WebSockets from the Wire Up w/ [@Spang](https://twitter.com/spang)
+Christine Spang's presentation will is availble in this [repo](https://github.com/spang/websockets-from-the-wire-up).  
+What are websockets?  
+
+- The web was originally reated to share academic documents. The average
+  HTTP request is about 800 bytes.  
+- AJAX (asynchronous javascript) - potentially update a subset of the
+  current page w/out reloading the entire page. Still requires creating a new HTTP request to keep checking in with the server. Communication with the client and server is one way.  
+- Websockets open up te communication channel so this HTTP request is
+  not being "abused".  
+
+Python Websockets Example:
+
+#####client
+<pre>
+#
+# example from http://aaugustin.github.io/websockets/
+
+import asyncio
+import websockets
+
+
+@asyncio.coroutine
+def hello(websocket, path):
+    name = yield from websocket.recv()
+    print("< {}".format(name))
+    greeting = "Hello {}!".format(name)
+    yield from websocket.send(greeting)
+    print("> {}".format(greeting))
+
+# Normally websockets go over regular HTTP(S) ports (80/443), but we want
+# to be able to run this example as non-root, so we use a high-numbered port.
+start_server = websockets.serve(hello, 'localhost', 8765)
+
+asyncio.get_event_loop().run_until_complete(start_server)
+asyncio.get_event_loop().run_forever()
+</pre>
+
+
+#####server
+<pre>
+#
+# example from http://aaugustin.github.io/websockets/
+
+import asyncio
+import websockets
+
+
+@asyncio.coroutine
+def hello(websocket, path):
+    name = yield from websocket.recv()
+    print("< {}".format(name))
+    greeting = "Hello {}!".format(name)
+    yield from websocket.send(greeting)
+    print("> {}".format(greeting))
+
+# Normally websockets go over regular HTTP(S) ports (80/443), but we want
+# to be able to run this example as non-root, so we use a high-numbered port.
+start_server = websockets.serve(hello, 'localhost', 8765)
+
+asyncio.get_event_loop().run_until_complete(start_server)
+asyncio.get_event_loop().run_forever()
+
+</pre>
+
+
 
 ##Links
 Bayesian stat from Allen Downey:  
