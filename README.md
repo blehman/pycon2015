@@ -356,6 +356,29 @@ asyncio.get_event_loop().run_forever()
 </pre>
 
 
+###9.) Improve your development environments with virtualization w/ Luke Sneeringer
+
+High level summary: virtualization is good for many reasons.  
+
+About that which I learned while he was talking (my team would probably
+call this my 'Golden Retriever Learning Style':  
+
+- [Vagrantfile](http://docs.vagrantup.com/v2/vagrantfile/)
+##### how to set up a virtural enviroment
+- Virtalenv (see this older [repo](https://github.com/lukesneeringer/pycon2013-socketio))
+<pre>
+mkvirtualenv pycon2013_socketio --python=python2.7
+workon pycon2013_socketio
+git clone http://github.com/lukesneeringer/pycon2013-socketio.git
+cd pycon2013-socketio/
+pip install -r pip-requirements.txt
+</pre>
+- Anaconda
+<pre>
+conda create -n testEnv scikit-learn python=2.6 anaconda
+source activate testEnv
+source deactivate
+</pre>
 
 ##Links
 Bayesian stat from Allen Downey:  
@@ -365,6 +388,11 @@ Visualizations:
   * [Kaggle Comp Process Visualization](http://datascience.computingpatterns.com/)
 
 ##Random notes
+0. Conda specific notes:
+<pre>
+conda info -e
+    Known Anaconda environments:
+</pre>
 1. Handy ipython tid bits  
 
   - Get Twitter Data from the public api (**we had problems w/ this in the NetworkX lecture method**)
