@@ -239,7 +239,7 @@ In general, these talks were much more high level introductions.
 - Unit test, unit test, unit test
 - See [docs](https://www.python.org/dev/peps/pep-0008/)
 
-###4.) Distributed Systems 101 [lvh](https://github.com/lvh)  
+###4.) Distributed Systems 101 w/ [lvh](https://github.com/lvh)  
 - [Slides](http://www.lvh.io/DistributedSystems101/#/sec-title-slide)
 
 - Trade-offs:  
@@ -361,7 +361,7 @@ asyncio.get_event_loop().run_forever()
 High level summary: virtualization is good for many reasons.  
 
 About that which I learned while he was talking (my team would probably
-call this my 'Golden Retriever Learning Style':  
+call this my 'Golden Retriever Learning Style'):  
 
 ##### how to set up a virtural enviroment
 - Virtalenv (see this older [repo](https://github.com/lukesneeringer/pycon2013-socketio))
