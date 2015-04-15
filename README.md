@@ -380,7 +380,11 @@ conda create -n testEnv scikit-learn python=2.6 anaconda
 source activate testEnv
 ...
 source deactivate
-</pre>
+</pre>  
+
+
+###10.)iPython notebook within Google Docs!
+See [colaboratory](http://colaboratory.jupyter.org/welcome/).
 
 ##Links
 Bayesian stat from Allen Downey:  
