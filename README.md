@@ -395,11 +395,12 @@ Visualizations:
 
 ##Random notes
 0. Conda specific notes:
-- Get dependencies:  
-<pre>
-conda depends scikit-lear
-</pre>
-- View currently created environments
+ 
+  - Get dependencies:  
+  <pre>
+  conda depends scikit-lear
+  </pre>
+  - View currently created environments
 <pre>
 conda info -e
     Known Anaconda environments:
