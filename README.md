@@ -383,7 +383,7 @@ source deactivate
 </pre>  
 
 
-###10.)iPython notebook within Google Docs!
+###10.) iPython notebook within Google Docs!
 See [colaboratory](http://colaboratory.jupyter.org/welcome/).
 
 ##Links
